@@ -1,0 +1,72 @@
+<!-- scroll.html（書物：PDF書庫） -->
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>書物｜地獄伝</title>
+  <meta name="description" content="地獄伝の書物（PDF）を収蔵する書庫。" />
+  <link rel="icon" href="images/favicon.jpeg">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <header class="wrap header">
+    <div class="brand">地獄伝</div>
+    <nav class="nav">
+      <a href="index.html">門</a>
+      <a href="scroll.html" aria-current="page">書物</a>
+      <a href="realms.html">界隈</a>
+      <a href="order.html">運営機構</a>
+      <a href="terms.html">利用規約</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" style="padding-bottom:18px;">
+      <h1 class="slogan" style="font-size:34px;">書物</h1>
+      <p class="manifesto" style="margin-bottom:6px;">
+        ― PDF書庫 ―
+      </p>
+      <div class="sub">頁をめくるほど、無駄は増える。</div>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <h2>検索</h2>
+      </div>
+      <div class="searchRow">
+        <input id="scrollSearch" class="input" placeholder="題名 / 種別 / タグ（例：地獄伝 / ルール / TRPG）" />
+      </div>
+      <p class="note" style="margin-top:10px;">
+        ※PDFは別タブで開きます。スマホの場合は閲覧アプリに渡ることがあります。
+      </p>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <h2>収蔵一覧</h2>
+        <span class="muted" id="scrollCount" style="font-size:12px;"></span>
+      </div>
+      <div id="scrollList" class="list" style="margin-top:14px;"></div>
+    </section>
+  </main>
+
+  <footer class="wrap footer" style="display:flex; justify-content:space-between; align-items:center;">
+    <span class="muted">©地獄伝</span>
+    <span class="muted" style="font-size:12px;">このサイトはAIを用いて作成しました</span>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    renderScrolls("");
+    const input = document.getElementById("scrollSearch");
+    if (input) {
+      input.addEventListener("input", () => renderScrolls(input.value));
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+/* assets/style.css */
+:root {
+  --bg: #0b0c0f;
+  /* 墨黒 */
+  --paper: #11131a;
+  /* 墨の層 */
+  --text: #e7e2d8;
+  /* 生成り */
+  --muted: #a59f93;
+  --crimson: #7a1f2b;
+  /* 深紅 */
+  --gold: #8a7a4b;
+  /* 鈍金 */
+  --line: rgba(231, 226, 216, .12);
+  --shadow: 0 10px 30px rgba(0, 0, 0, .45);
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(122, 31, 43, .22), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(138, 122, 75, .14), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  letter-spacing: .02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none
+}
+
+a:hover {
+  opacity: .9
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 18px
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: rgba(11, 12, 15, .85);
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text)
+}
+
+.nav {
+  display: flex;
+  gap: 16px
+}
+
+.nav a {
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px
+}
+
+.nav a[aria-current="page"] {
+  border-color: var(--line);
+  background: rgba(17, 19, 26, .6)
+}
+
+.hero {
+  padding: 52px 0 30px
+}
+
+.slogan {
+  font-size: 42px;
+  margin: 0 0 14px;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .5);
+}
+
+.manifesto {
+  margin: 0 0 10px;
+  color: var(--text);
+  line-height: 1.9;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 13px
+}
+
+.panel {
+  margin: 18px 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(17, 19, 26, .78), rgba(17, 19, 26, .56));
+  box-shadow: var(--shadow);
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 18px
+}
+
+.more {
+  color: var(--muted);
+  font-size: 13px;
+  border-bottom: 1px solid transparent
+}
+
+.more:hover {
+  border-bottom-color: var(--line)
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px
+}
+
+.item {
+  padding: 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(11, 12, 15, .35);
+}
+
+.item .meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  gap: 10px
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(231, 226, 216, .18);
+  color: var(--muted);
+  font-size: 12px
+}
+
+.badge.crimson {
+  border-color: rgba(122, 31, 43, .5);
+  color: #d4b5ba
+}
+
+.badge.gold {
+  border-color: rgba(138, 122, 75, .5);
+  color: #d8d0b3
+}
+
+.searchRow {
+  margin-top: 14px
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  outline: none;
+  color: var(--text);
+  background: rgba(11, 12, 15, .35);
+  font-family: inherit;
+}
+
+.grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.card {
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(11, 12, 15, .35);
+  transition: transform .12s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(122, 31, 43, .5);
+}
+
+.card .title {
+  font-size: 16px;
+  margin: 0 0 6px
+}
+
+.card .desc {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px
+}
+
+.tag {
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(122, 31, 43, .55);
+  background: rgba(122, 31, 43, .18);
+}
+
+.btn:hover {
+  background: rgba(122, 31, 43, .26)
+}
+
+.note {
+  margin: 10px 4px 0;
+  color: var(--muted);
+  font-size: 12px
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  margin-top: 30px
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 12px
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr
+  }
+
+  .slogan {
+    font-size: 34px
+  }
+}

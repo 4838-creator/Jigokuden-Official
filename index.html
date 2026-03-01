@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>門｜地獄伝</title>
+  <link rel="icon" href="images/favicon.jpeg">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+  <div class="noise"></div>
+
+  <header class="wrap header">
+    <div class="brand">地獄伝</div>
+    <nav class="nav">
+      <a href="index.html" aria-current="page">門</a>
+      <a href="scroll.html">書物</a>
+      <a href="realms.html">界隈</a>
+      <a href="order.html">運営機構</a>
+      <a href="terms.html">利用規約</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero center">
+      <div class="vertical">
+        知恵の無駄をしよう
+      </div>
+      <div class="subtitle">
+        Waste your wisdom beautifully.
+      </div>
+    </section>
+
+    <section class="manifestoBlock">
+      <p>
+        効率を尊ぶ時代において、<br>
+        我々は無駄を選ぶ。
+      </p>
+      <p>
+        勝たぬ物語へ投資し、<br>
+        役に立たぬ議論に時間を費やす。
+      </p>
+      <p class="small">
+        それは衰退ではなく、遊戯である。
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>最新告知</h2>
+      <div id="newsList" class="list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <h2>入口</h2>
+      </div>
+      <div class="grid">
+        <a class="card" href="scroll.html" style="display:block;">
+          <h3 class="title">書物</h3>
+          <p class="desc">地獄伝の物語やルールなどが収蔵されたPDF書庫へ向かいます。</p>
+          <div class="tags">
+            <span class="tag">PDF</span>
+            <span class="tag">小説・ルール</span>
+          </div>
+        </a>
+        <a class="card" href="realms.html" style="display:block;">
+          <h3 class="title">界隈</h3>
+          <p class="desc">交流や制作の拠点となるDiscordサーバー群へ接続します。</p>
+          <div class="tags">
+            <span class="tag">Discord</span>
+            <span class="tag">コミュニティ</span>
+          </div>
+        </a>
+        <a class="card" href="order.html" style="display:block;">
+          <h3 class="title">運営機構</h3>
+          <p class="desc">地獄伝の運営体制や組織図、規程などの詳細を確認します。</p>
+          <div class="tags">
+            <span class="tag">規約</span>
+            <span class="tag">組織憲章</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap footer" style="display:flex; justify-content:space-between; align-items:center;">
+    <span class="muted">©地獄伝</span>
+    <span class="muted" style="font-size:12px;">このサイトはAIを用いて作成しました</span>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+  <script>renderNews(3);</script>
+</body>
+
+</html>

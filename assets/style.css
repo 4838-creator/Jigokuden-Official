@@ -275,3 +275,77 @@ a:hover {
     font-size: 34px
   }
 }
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+
+  /* ヘッダーを縦並びにしてサイズを縮小 */
+  .header {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 14px;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .nav {
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  /* ヒーロー */
+  .slogan {
+    font-size: 24px;
+  }
+
+  .hero {
+    padding: 28px 0 16px;
+  }
+
+  /* パネル */
+  .panel {
+    padding: 12px;
+    margin: 12px 0;
+  }
+
+  .panel h2 {
+    font-size: 16px;
+  }
+
+  /* 組織図のスケーリング＋文字縮小 */
+  .org-chart {
+    transform: scale(0.6);
+    transform-origin: top center;
+    margin-bottom: -120px;
+    font-size: 12px;
+  }
+
+  .org-chart div[style*="font-size:16px"] {
+    font-size: 13px !important;
+    padding: 8px 14px !important;
+  }
+
+  .org-chart div[style*="font-size:14px"] {
+    font-size: 11px !important;
+    padding: 8px 10px !important;
+  }
+
+  .org-chart div[style*="font-size:12px"] {
+    font-size: 10px !important;
+  }
+
+  /* フッター */
+  .footer {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+}

@@ -29,6 +29,56 @@
     `).join("");
   };
 
+  // PDFビューア（ページ内表示）
+  // iOS SafariはiframeでのPDF表示に対応しないため別タブへ逃がす
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+    || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  function ensureViewer() {
+    let overlay = $("pdfViewer");
+    if (overlay) return overlay;
+    overlay = document.createElement("div");
+    overlay.id = "pdfViewer";
+    overlay.className = "viewerOverlay";
+    overlay.innerHTML = `
+      <div class="viewerBox" role="dialog" aria-modal="true" aria-label="PDF閲覧">
+        <div class="viewerHead">
+          <span class="viewerTitle" id="pdfViewerTitle"></span>
+          <span class="viewerActions">
+            <a class="btn viewerBtn" id="pdfViewerOpen" href="#" target="_blank" rel="noopener noreferrer">別タブで開く</a>
+            <button class="btn viewerBtn" id="pdfViewerClose" type="button">閉じる</button>
+          </span>
+        </div>
+        <iframe class="viewerFrame" id="pdfViewerFrame" title="PDF"></iframe>
+      </div>`;
+    document.body.appendChild(overlay);
+
+    const close = () => {
+      overlay.classList.remove("open");
+      $("pdfViewerFrame").src = "about:blank";
+      document.body.style.overflow = "";
+    };
+    $("pdfViewerClose").addEventListener("click", close);
+    overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && overlay.classList.contains("open")) close();
+    });
+    return overlay;
+  }
+
+  window.openScroll = function (file, title) {
+    if (isIOS) {
+      window.open(file, "_blank", "noopener");
+      return;
+    }
+    const overlay = ensureViewer();
+    $("pdfViewerTitle").textContent = title || "書物";
+    $("pdfViewerOpen").href = file;
+    $("pdfViewerFrame").src = encodeURI(file) + "#view=FitH";
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
+
   // SCROLLS (検索フィルタ対応版)
   window.renderScrolls = function (filterText = "") {
     const list = $("scrollList");
@@ -64,10 +114,16 @@
           ${(x.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join("")}
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <a class="btn" href="${esc(x.file)}" target="_blank" rel="noopener noreferrer">開く</a>
+          <button class="btn" type="button" data-scroll-file="${esc(x.file)}" data-scroll-title="${esc(x.title)}">読む</button>
+          <a class="btn ghost" href="${esc(x.file)}" target="_blank" rel="noopener noreferrer">別タブで開く</a>
         </div>
       </article>
     `).join("") || `<div class="muted">該当する書物がない。</div>`;
+
+    list.querySelectorAll("[data-scroll-file]").forEach(btn => {
+      btn.addEventListener("click", () =>
+        window.openScroll(btn.dataset.scrollFile, btn.dataset.scrollTitle));
+    });
   };
 
   // REALMS

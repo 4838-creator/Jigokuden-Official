@@ -86,6 +86,49 @@ a:hover {
   padding: 52px 0 30px
 }
 
+.hero.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 0 40px;
+}
+
+/* 縦書きの標語 */
+.vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 30px;
+  letter-spacing: .34em;
+  line-height: 1.6;
+  color: var(--text);
+  text-shadow: 0 2px 12px rgba(122, 31, 43, .35);
+}
+
+.subtitle {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.manifestoBlock {
+  text-align: center;
+  padding: 8px 0 26px;
+  line-height: 2.2;
+  letter-spacing: .08em;
+}
+
+.manifestoBlock p {
+  margin: 0 0 18px;
+}
+
+.manifestoBlock .small {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .slogan {
   font-size: 42px;
   margin: 0 0 14px;
@@ -196,6 +239,49 @@ a:hover {
   gap: 12px;
 }
 
+.grid.grid4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 世界観などの読み物 */
+.lead {
+  margin: 14px 0 4px;
+  line-height: 2.1;
+  letter-spacing: .06em;
+}
+
+.prose {
+  margin-top: 14px;
+  line-height: 2.05;
+  letter-spacing: .04em;
+  color: var(--text);
+}
+
+.prose p {
+  margin: 0 0 16px;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose strong {
+  color: #d8d0b3;
+  font-weight: bold;
+}
+
+.prose em {
+  font-style: normal;
+  color: #d4b5ba;
+}
+
+.item .itemBody {
+  margin-top: 8px;
+  line-height: 1.9;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .card {
   padding: 14px;
   border-radius: 16px;
@@ -248,6 +334,98 @@ a:hover {
 
 .btn:hover {
   background: rgba(122, 31, 43, .26)
+}
+
+button.btn {
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+
+.btn.ghost {
+  border-color: var(--line);
+  background: rgba(11, 12, 15, .35);
+}
+
+.btn.ghost:hover {
+  background: rgba(231, 226, 216, .06);
+}
+
+/* PDFビューア */
+.viewerOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 5, 7, .82);
+  backdrop-filter: blur(4px);
+  padding: 3vh 3vw;
+}
+
+.viewerOverlay.open {
+  display: flex;
+}
+
+.viewerBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.viewerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.viewerTitle {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viewerActions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.viewerBtn {
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.viewerFrame {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #3a3d46;
+}
+
+@media (max-width: 600px) {
+  .viewerOverlay {
+    padding: 0;
+  }
+
+  .viewerBox {
+    border-radius: 0;
+    border: 0;
+    max-width: none;
+  }
 }
 
 .note {
@@ -304,6 +482,14 @@ a:hover {
   /* ヒーロー */
   .slogan {
     font-size: 24px;
+  }
+
+  .vertical {
+    font-size: 22px;
+  }
+
+  .hero.center {
+    padding: 40px 0 24px;
   }
 
   .hero {
